@@ -1,7 +1,8 @@
+import java.lang.Math.sqrt
 import java.util.*
 
 
-
+fun main(args: Array<String>) {
 
 
 //    println("Hello World!")
@@ -104,57 +105,61 @@ import java.util.*
 
     //------------------------------------
 
-//    println("Insert nb:")
-//    val nbPr = readLine()!!.toInt()
-//    var msg : String = "$nbPr est un nombre Premier"
-//    if(nbPr > 1) {
-//        var i : Int = 2
-//        while(i < nbPr) {
-//            if(nbPr % i == 0) {
-//                msg = "$nbPr n'est pas un nombre premier"
-//                i = nbPr
-//            }
-//            i++
-//        }
-//    } else {
-//        msg = "pas de nombre égale a  0 ou 1"
-//    }
-//    println(msg)
+    println("Insert nb:")
+    val nbPr = readLine()!!.toInt()
+    var msg : String = "$nbPr est un nombre Premier"
+    // rejet des nombres inférieur à 1 et les nombres pair
+    if(nbPr > 1 && nbPr % 2 != 0) {
+        var i : Int = 2
+        //obtimisation de la division avec la racine carre
+        var div : Double = kotlin.math.sqrt(nbPr.toDouble())
 
-
-fun main(args: Array<String>) {
-
-    println("Juste au prix")
-    println("Niveau (1 = facile; 2 =  normal; 3 = difficile)")
-    var levelChoice : Int = readLine()?.toInt()!!
-    val level : Int? = when(levelChoice) {
-        1 -> 0
-        2 -> 30
-        3 -> 10
-        else -> null
-    }
-
-    if(level != null) {
-        val toFind : Int = (1..10).random()
-        var msg : String = "La valeur mystère $toFind"
-        var i : Int = 1
-        while (i != level!!) {
-            println("Taper un chiffre ou q pour sortir")
-
-            var insert : String = readLine()!!
-            if (insert != "q") {
-                var insert : Int = insert.toInt()
-                if(insert == toFind) {
-                    msg = "Score : $i"
-                    i = level
-                }  else {
-                    i++
-                }
+        while(i < div.toInt()) {
+            if(nbPr % i == 0) {
+                msg = "$nbPr n'est pas un nombre premier"
+                i = nbPr
             }
-            else { i = level }
-
+            i++
         }
-        println(msg)
+    } else {
+        msg = "pas de nombre égale a  0 ou 1"
+    }
+    println(msg)
 
-    } else { println("Niveau entre 1 - 3") }
+
+
+//
+//    println("Juste au prix")
+//    println("Niveau (1 = facile; 2 =  normal; 3 = difficile)")
+//    var levelChoice : Int = readLine()?.toInt()!!
+//    val level : Int? = when(levelChoice) {
+//        1 -> 0
+//        2 -> 30
+//        3 -> 10
+//        else -> null
+//    }
+//
+//    if(level != null) {
+//        val toFind : Int = (1..10).random()
+//        var msg : String = "La valeur mystère $toFind"
+//        var i : Int = 1
+//        while (i != level!!) {
+//            println("Taper un chiffre ou q pour sortir")
+//
+//            var insert : String = readLine()!!
+//            if (insert != "q") {
+//                var insert : Int = insert.toInt()
+//                if(insert == toFind) {
+//                    msg = "Score : $i"
+//                    i = level
+//                }  else {
+//                    i++
+//                }
+//            }
+//            else { i = level }
+//
+//        }
+//        println(msg)
+//
+//    } else { println("Niveau entre 1 - 3") }
 }
